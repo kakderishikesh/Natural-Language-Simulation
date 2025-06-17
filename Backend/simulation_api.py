@@ -14,7 +14,7 @@ app = FastAPI(title="Natural Language Simulation API", version="1.0.0")
 # Add CORS middleware for OpenAI Assistant integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific OpenAI domains
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
