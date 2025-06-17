@@ -1,2 +1,2 @@
-# ML-Powered-Warehouse-Simulation
-An Experimental project to integrate ML in Discrete Event Simulation
+# Natural Language Simulation (DES)
+An Experimental project to make AI Driven Discrete Event Simulation
