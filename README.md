@@ -2,15 +2,15 @@
 
 An experimental project that integrates **Natural Language Processing** with **Discrete Event Simulation** using SimPy. This system allows you to query simulation models using natural language and get human-readable results.
 
-## 🌟 Features
+## Features
 
-- **🔗 API-Hosted Simulation**: FastAPI web service that wraps the SimPy simulation model
-- **🤖 AI Agent**: Natural language query processing and parameter extraction
-- **📊 Automatic Analysis**: Converts simulation results into human-readable insights
-- **🎯 Interactive Interface**: Command-line interface for real-time queries
-- **📖 Auto-Documentation**: OpenAPI/Swagger documentation for the API
+- **API-Hosted Simulation**: FastAPI web service that wraps the SimPy simulation model
+- **AI Agent**: Natural language query processing and parameter extraction
+- **Automatic Analysis**: Converts simulation results into human-readable insights
+- **Interactive Interface**: Command-line interface for real-time queries
+- **Auto-Documentation**: OpenAPI/Swagger documentation for the API
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 Natural Language Query → AI Agent → Parameter Extraction → API Call → Simulation → Results → Natural Language Response
@@ -25,7 +25,7 @@ The system consists of:
    - **API Tests** (`Backend/test_api.py`): Comprehensive API testing suite
 2. **Demo Interface** (`demo.py`): Complete demonstration of the system
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -75,7 +75,7 @@ This starts the API server and provides an interactive menu with options to:
 #### Option 3: API Documentation
 Visit `http://localhost:8000/docs` for interactive API documentation
 
-## 🗣️ Natural Language Queries
+## Natural Language Queries
 
 The AI agent understands various query formats:
 
@@ -90,7 +90,7 @@ The AI agent understands various query formats:
 - **y**: Queue length threshold to deactivate WS2 
 - **simulation_time**: Duration of simulation in minutes (after 20-minute warm-up)
 
-## 📊 Example Response
+## Example Response
 
 ```
 Based on your query: "What if x is 5 and y is 3 and the simulation run is 1000 minutes?"
@@ -118,7 +118,7 @@ Key Performance Indicators:
 The adaptive workstation strategy (activating WS2 at 5 entities, deactivating below 3) helped manage the workload efficiently.
 ```
 
-## 🔧 API Endpoints
+## API Endpoints
 
 ### `POST /simulate`
 Run a simulation with specified parameters
@@ -154,7 +154,7 @@ Check if the simulation service is running
 ### `GET /`
 Get API information and version
 
-## 🎯 Use Cases
+## Use Cases
 
 This system is perfect for:
 
@@ -164,22 +164,22 @@ This system is perfect for:
 - **Prototyping**: Testing different simulation parameters efficiently
 - **Business Analysis**: Non-technical stakeholders can query simulations
 
-## 🤖 OpenAI Assistant Integration
+## OpenAI Assistant Integration
 
 This system is designed to work with OpenAI Assistants for natural language querying.
 
-### **Assistant Configuration:**
+### Assistant Configuration:
 - **Assistant Name**: Simulation Helper
 - **Assistant ID**: `asst_w0IWjdDaqYwYxCFrriBNXjc5`
 - **Model**: GPT-4o
-- **API Integration**: Calls local simulation API at `http://localhost:8000`
+- **API Integration**: Calls cloud-hosted simulation API at `https://natural-language-simulation-api.onrender.com`
 
-### **Setup Instructions:**
+### Setup Instructions:
 
 1. **Configure Function in OpenAI Assistant:**
    - Add a new function called `run_simulation`
    - Use the schema provided in `Backend/README.md`
-   - Function should make HTTP POST requests to your local API
+   - Function should make HTTP POST requests to your API
 
 2. **Update System Instructions:**
    ```
@@ -194,23 +194,33 @@ This system is designed to work with OpenAI Assistants for natural language quer
    When users ask simulation questions, extract the parameters and use the run_simulation function.
    ```
 
-3. **Start Your Backend:**
-   ```bash
-   python Backend/simulation_api.py
+3. **Your Backend is Live!**
+   The API is deployed and accessible at:
+   ```
+   https://natural-language-simulation-api.onrender.com
    ```
 
 4. **Test with Natural Language:**
    - "What if x is 7 and y is 3 and simulation runs for 1000 minutes?"
    - "How would the system perform with activation threshold 10, deactivation threshold 4, over 500 minutes?"
 
-### **Environment Variables:**
+### Live API Information:
+```
+API URL: https://natural-language-simulation-api.onrender.com
+Documentation: https://natural-language-simulation-api.onrender.com/docs
+Health Check: https://natural-language-simulation-api.onrender.com/health
+Simulation Endpoint: POST /simulate
+```
+
+### Environment Variables:
 Create a `.env` file with:
 ```
 ASSISTANT_ID=asst_w0IWjdDaqYwYxCFrriBNXjc5
 OPENAI_API_KEY=sk-proj-...
+API_BASE_URL=https://natural-language-simulation-api.onrender.com
 ```
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - Advanced OpenAI integration with GPT-4 Vision for visualization
 - Support for more complex simulation parameters
@@ -221,7 +231,7 @@ OPENAI_API_KEY=sk-proj-...
 - Support for multiple simulation models
 - Integration with OpenAI Code Interpreter for data analysis
 
-## 📋 Dependencies
+## Dependencies
 
 - **SimPy**: Discrete event simulation framework
 - **FastAPI**: Modern web framework for APIs
@@ -230,7 +240,7 @@ OPENAI_API_KEY=sk-proj-...
 - **NumPy**: Numerical computations
 - **Pydantic**: Data validation and parsing
 
-## 🤝 Contributing
+## Contributing
 
 This is an experimental project. Feel free to:
 - Add new natural language patterns
@@ -239,6 +249,6 @@ This is an experimental project. Feel free to:
 - Enhance the response formatting
 - Add visualization capabilities
 
-## 📄 License
+## License
 
 [Add your license here]

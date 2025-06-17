@@ -1,22 +1,22 @@
-# 🚀 Deployment Guide: Render.com
+# Deployment Guide: Render.com
 
 This guide walks you through deploying the Natural Language Simulation API to Render.com for cloud hosting.
 
-## 📋 Prerequisites
+## Prerequisites
 
 - GitHub account with your repository
 - Render.com account (free tier available)
 - Your code pushed to a GitHub repository
 
-## 🔧 Step 1: Prepare Repository
+## Step 1: Prepare Repository
 
 Ensure these files are in your repository root:
-- ✅ `render.yaml` - Render service configuration
-- ✅ `runtime.txt` - Python version specification  
-- ✅ `requirements.txt` - Python dependencies
-- ✅ `Backend/simulation_api.py` - Your API with CORS enabled
+- `render.yaml` - Render service configuration
+- `runtime.txt` - Python version specification  
+- `requirements.txt` - Python dependencies
+- `Backend/simulation_api.py` - Your API with CORS enabled
 
-## 🌐 Step 2: Deploy to Render
+## Step 2: Deploy to Render
 
 ### Option A: Using Render Dashboard (Recommended)
 
@@ -42,7 +42,7 @@ Ensure these files are in your repository root:
 2. Go to Render dashboard → **"New +"** → **"Blueprint"**
 3. Connect your repository and deploy
 
-## 🎯 Step 3: Get Your API URL
+## Step 3: Get Your API URL
 
 After deployment, Render will provide you with a URL like:
 ```
@@ -51,7 +51,7 @@ https://natural-language-simulation-api-[random].onrender.com
 
 **Save this URL** - you'll need it for OpenAI Assistant configuration.
 
-## 🧪 Step 4: Test Your Deployed API
+## Step 4: Test Your Deployed API
 
 ### Health Check:
 ```bash
@@ -65,7 +65,7 @@ curl -X POST "https://your-app-name.onrender.com/simulate" \
   -d '{"x": 7, "y": 3, "simulation_time": 100}'
 ```
 
-## 🤖 Step 5: Update OpenAI Assistant Configuration
+## Step 5: Update OpenAI Assistant Configuration
 
 Update your OpenAI Assistant function to use the new cloud URL:
 
@@ -104,7 +104,7 @@ Update your OpenAI Assistant function to use the new cloud URL:
 - **Endpoint**: `POST /simulate`
 - **Headers**: `Content-Type: application/json`
 
-## 📊 Step 6: Update Environment Variables
+## Step 6: Update Environment Variables
 
 Update your `.env` file:
 ```env
@@ -113,7 +113,7 @@ OPENAI_API_KEY=sk-proj-...
 API_BASE_URL=https://your-app-name.onrender.com
 ```
 
-## ⚡ Performance Notes
+## Performance Notes
 
 ### Free Tier Limitations:
 - **Cold starts**: ~30 seconds delay after inactivity
@@ -126,7 +126,7 @@ API_BASE_URL=https://your-app-name.onrender.com
 - **Better performance**
 - **Custom domains**
 
-## 🔍 Monitoring & Debugging
+## Monitoring & Debugging
 
 ### View Logs:
 1. Go to your Render dashboard
@@ -137,7 +137,7 @@ API_BASE_URL=https://your-app-name.onrender.com
 - Render automatically monitors `/health` endpoint
 - Service will restart if health checks fail
 
-## 🚨 Common Issues & Solutions
+## Common Issues & Solutions
 
 ### Issue: Build Fails
 **Solution**: Check `requirements.txt` has all dependencies
@@ -167,7 +167,7 @@ allow_origins=["https://chat.openai.com", "https://api.openai.com"]
 - Check OpenAI Assistant function configuration
 - Test with curl first
 
-## 🔄 Updates & Redeployment
+## Updates & Redeployment
 
 ### Automatic Redeployment:
 - Push changes to your GitHub repository
@@ -178,15 +178,15 @@ allow_origins=["https://chat.openai.com", "https://api.openai.com"]
 2. Click your service
 3. Click **"Manual Deploy"** → **"Deploy latest commit"**
 
-## 🎉 Success Checklist
+## Success Checklist
 
-- ✅ API deployed to Render.com
-- ✅ Health check endpoint working
-- ✅ Simulation endpoint responding
-- ✅ OpenAI Assistant function updated with new URL
-- ✅ Natural language queries working end-to-end
+- API deployed to Render.com
+- Health check endpoint working
+- Simulation endpoint responding
+- OpenAI Assistant function updated with new URL
+- Natural language queries working end-to-end
 
-## 📚 Next Steps
+## Next Steps
 
 1. **Test thoroughly** with various simulation parameters
 2. **Monitor usage** via Render dashboard
@@ -194,4 +194,4 @@ allow_origins=["https://chat.openai.com", "https://api.openai.com"]
 4. **Set up custom domain** (paid plans only)
 5. **Add monitoring** and alerting for production environments
 
-Your simulation API is now globally accessible! 🌍 
+Your simulation API is now globally accessible! 

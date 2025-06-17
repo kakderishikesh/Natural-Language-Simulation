@@ -2,7 +2,7 @@
 
 This is the backend package for the Natural Language Simulation system, containing all core simulation and API components.
 
-## 📁 Backend Components
+## Backend Components
 
 ### Core Files:
 - **`simulation.py`** - SimPy-based discrete event simulation engine
@@ -10,7 +10,7 @@ This is the backend package for the Natural Language Simulation system, containi
 - **`ai_agent.py`** - Local natural language processing agent (standalone)
 - **`test_api.py`** - Comprehensive API testing suite
 
-## 🚀 Running the Backend
+## Running the Backend
 
 ### Start the API Server:
 ```bash
@@ -27,13 +27,13 @@ python Backend/simulation_api.py
 - **Run Simulation**: `POST /simulate`
 - **Documentation**: `GET /docs` (Interactive Swagger UI)
 
-## 🔗 OpenAI Assistant Integration
+## OpenAI Assistant Integration
 
 ### Assistant Configuration:
 - **Assistant Name**: Simulation Helper
 - **Assistant ID**: `asst_w0IWjdDaqYwYxCFrriBNXjc5`
 - **Model**: GPT-4o
-- **API Base URL**: `http://localhost:8000`
+- **API Base URL**: `https://natural-language-simulation-api.onrender.com`
 
 ### Function Definition for OpenAI Assistant:
 
@@ -88,7 +88,7 @@ Example queries you should handle:
 - "Run a simulation with x=5, y=2, for 2000 minutes"
 ```
 
-## 📊 API Request/Response Format
+## API Request/Response Format
 
 ### Request Format:
 ```json
@@ -115,7 +115,7 @@ Example queries you should handle:
 }
 ```
 
-## 🧪 Testing the Backend
+## Testing the Backend
 
 ### Run All Tests:
 ```bash
@@ -133,7 +133,7 @@ curl -X POST "http://localhost:8000/simulate" \
   -d '{"x": 7, "y": 3, "simulation_time": 1000}'
 ```
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Simulation Model:
 - **Arrival Process**: Exponential distribution (mean = 5 minutes)
@@ -155,7 +155,7 @@ curl -X POST "http://localhost:8000/simulate" \
 - Meaningful error messages
 - HTTP status code compliance
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 The simulation tracks and returns:
 - **Average time in system**: Total time entities spend in the system
@@ -164,7 +164,7 @@ The simulation tracks and returns:
 - **System utilization**: Min/max processing times
 - **Entity volume**: Total entities processed
 
-## 🔐 Environment Setup
+## Environment Setup
 
 Required environment variables (in `.env`):
 ```
@@ -172,13 +172,13 @@ ASSISTANT_ID=asst_w0IWjdDaqYwYxCFrriBNXjc5
 OPENAI_API_KEY=sk-proj-...
 ```
 
-## 🚨 Known Issues
+## Known Issues
 
 - Backend must be started before OpenAI Assistant can call it
 - Local hosting requires port 8000 to be available
 - Long simulations (>5000 minutes) may timeout
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - Dockerization for easy deployment
 - Database integration for result storage
