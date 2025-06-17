@@ -1,1 +1,8 @@
+Backend/.venv
+Backend/.env
+Backend/test*
 .venv
+.env
+test*
+__pycache__
+.DS_Store
