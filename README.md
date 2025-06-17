@@ -279,6 +279,3 @@ This is an experimental project. Feel free to:
 - Enhance the response formatting
 - Add visualization capabilities
 
-## License
-
-[Add your license here]

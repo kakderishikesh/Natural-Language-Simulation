@@ -7,8 +7,6 @@ This is the backend package for the Natural Language Simulation system, containi
 ### Core Files:
 - **`simulation.py`** - SimPy-based discrete event simulation engine
 - **`simulation_api.py`** - FastAPI web server that hosts the simulation
-- **`ai_agent.py`** - Local natural language processing agent (standalone)
-- **`test_api.py`** - Comprehensive API testing suite
 
 ## Running the Backend
 
