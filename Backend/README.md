@@ -31,7 +31,6 @@ python Backend/simulation_api.py
 
 ### Assistant Configuration:
 - **Assistant Name**: Simulation Helper
-- **Assistant ID**: `asst_w0IWjdDaqYwYxCFrriBNXjc5`
 - **Model**: GPT-4o
 - **API Base URL**: `https://natural-language-simulation-api.onrender.com`
 
@@ -168,8 +167,8 @@ The simulation tracks and returns:
 
 Required environment variables (in `.env`):
 ```
-ASSISTANT_ID=asst_w0IWjdDaqYwYxCFrriBNXjc5
-OPENAI_API_KEY=sk-proj-...
+ASSISTANT_ID=your-assistant-id
+OPENAI_API_KEY=your-openai-api-key
 ```
 
 ## Known Issues

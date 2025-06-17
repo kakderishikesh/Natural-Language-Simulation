@@ -5,9 +5,16 @@ Backend/test*
 .env
 test*
 
+# Frontend secrets and local files
+frontend/.streamlit/secrets.toml
+frontend/.env
+
 # Deployment
 *.log
 .deployment/
 render-logs/
 __pycache__
 .DS_Store
+
+# Streamlit
+.streamlit/

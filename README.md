@@ -21,9 +21,10 @@ The system consists of:
 1. **Backend Package** (`Backend/`): Core backend components
    - **Simulation Core** (`Backend/simulation.py`): Original SimPy-based queueing system simulation
    - **API Server** (`Backend/simulation_api.py`): FastAPI wrapper that hosts the simulation
-   - **AI Agent** (`Backend/ai_agent.py`): Natural language processing and API interaction
-   - **API Tests** (`Backend/test_api.py`): Comprehensive API testing suite
-2. **Demo Interface** (`demo.py`): Complete demonstration of the system
+2. **Frontend Interface** (`frontend/`): Web-based user interface
+   - **Streamlit App** (`frontend/app.py`): Interactive web interface for natural language queries
+   - **Configuration** (`frontend/.streamlit/`): Streamlit configuration and secrets
+3. **Deployment Configuration**: Cloud deployment setup for both backend and frontend
 
 ## Quick Start
 
@@ -42,7 +43,23 @@ The system consists of:
 
 ### Running the System
 
-#### Option 1: OpenAI Assistant Integration (Primary Use Case)
+#### Option 1: Web Interface (Recommended for Most Users)
+1. **Navigate to the frontend directory:**
+   ```bash
+   cd frontend
+   ```
+2. **Install frontend dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Configure your OpenAI API key** (see Frontend Setup below)
+4. **Run the Streamlit app:**
+   ```bash
+   streamlit run app.py
+   ```
+5. **Open your browser** to the provided URL (typically `http://localhost:8501`)
+
+#### Option 2: OpenAI Assistant Integration (Direct API Use)
 1. **Start the Backend API:**
    ```bash
    python Backend/simulation_api.py
@@ -50,30 +67,44 @@ The system consists of:
 2. **Configure your OpenAI Assistant** with the function schema (see Backend/README.md)
 3. **Chat with your assistant** using natural language queries!
 
-#### Option 2: Complete Demo (Standalone Testing)
-```bash
-python demo.py
-```
-This starts the API server and provides an interactive menu with options to:
-- Run the AI agent interactively
-- Test with pre-written demo queries
-- Test the API directly
-
-#### Option 2: Manual Setup
-
-1. **Start the API Server:**
-   ```bash
-   python Backend/simulation_api.py
-   ```
-   The API will be available at `http://localhost:8000`
-   
-2. **Run the AI Agent:**
-   ```bash
-   python Backend/ai_agent.py
-   ```
-
 #### Option 3: API Documentation
-Visit `http://localhost:8000/docs` for interactive API documentation
+Visit `http://localhost:8000/docs` for interactive API documentation when running the backend locally
+
+## Frontend Setup
+
+### Local Development
+1. **Configure API Keys:**
+   - Copy `frontend/.streamlit/secrets.toml` to your local secrets file
+   - Add your OpenAI API key:
+        ```toml
+   OPENAI_API_KEY = "your-openai-api-key-here"
+   ASSISTANT_ID = "your-assistant-id-here"
+   ```
+
+2. **Run the Application:**
+   ```bash
+   cd frontend
+   streamlit run app.py
+   ```
+
+### Deployment Options
+
+#### Streamlit Cloud (Free and Easy)
+1. **Fork this repository** to your GitHub account
+2. **Go to [share.streamlit.io](https://share.streamlit.io)**
+3. **Connect your GitHub account** and select this repository
+4. **Set the app path** to `frontend/app.py`
+5. **Add secrets** in the Streamlit Cloud dashboard:
+   - `OPENAI_API_KEY`: Your OpenAI API key
+   - `ASSISTANT_ID`: Your OpenAI Assistant ID
+6. **Deploy** and share the URL with anyone!
+
+#### Other Deployment Options
+- **Heroku**: Use the Streamlit buildpack
+- **AWS/GCP/Azure**: Container deployment
+- **Local Network**: Run with `--server.address 0.0.0.0`
+
+**For complete deployment instructions (backend + frontend), see [Deployment.md](Deployment.md)**
 
 ## Natural Language Queries
 
@@ -170,7 +201,6 @@ This system is designed to work with OpenAI Assistants for natural language quer
 
 ### Assistant Configuration:
 - **Assistant Name**: Simulation Helper
-- **Assistant ID**: `asst_w0IWjdDaqYwYxCFrriBNXjc5`
 - **Model**: GPT-4o
 - **API Integration**: Calls cloud-hosted simulation API at `https://natural-language-simulation-api.onrender.com`
 
@@ -215,8 +245,8 @@ Simulation Endpoint: POST /simulate
 ### Environment Variables:
 Create a `.env` file with:
 ```
-ASSISTANT_ID=asst_w0IWjdDaqYwYxCFrriBNXjc5
-OPENAI_API_KEY=sk-proj-...
+ASSISTANT_ID=your-assistant-id
+OPENAI_API_KEY=your-openai-api-key
 API_BASE_URL=https://natural-language-simulation-api.onrender.com
 ```
 
